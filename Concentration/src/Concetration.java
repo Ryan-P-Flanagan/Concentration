@@ -4,6 +4,7 @@ public class Concetration {
 		{
 			Display.prepareBoard();
 			Display.displayBoard();
+			
 		}
 		public static void prepareBoard() {
 
