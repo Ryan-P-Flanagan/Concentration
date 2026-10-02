@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-
+//new 
 public class Display {
     static String[][] board = new String[4][4];
     static boolean[][] revealed = new boolean[4][4];
