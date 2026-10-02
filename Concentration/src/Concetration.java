@@ -6,5 +6,8 @@ public class Concetration {
 			Display.playGame();
 			
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6aed3f355d5d8f7dc060dd853bbf78a82e67305
 }

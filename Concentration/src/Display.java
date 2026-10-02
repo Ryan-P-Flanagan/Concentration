@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Scanner; 
+=======
+import java.util.Scanner;
+>>>>>>> f6aed3f355d5d8f7dc060dd853bbf78a82e67305
 public class Display {
     static String[][] board = new String[4][4];
     static boolean[][] revealed = new boolean[4][4];
@@ -46,12 +50,17 @@ public class Display {
             System.out.println("  +-------+-------+-------+-------+");
         }
     }
+<<<<<<< HEAD
 
     public static void playGame() {
+=======
+	public static void playGame() {
+>>>>>>> f6aed3f355d5d8f7dc060dd853bbf78a82e67305
         Scanner scanner = new Scanner(System.in);
         int matches = 0;
         while (matches < 8) {
             displayBoard();
+<<<<<<< HEAD
             int r1 = 0, c1 = 0;
             while (true) {
                 System.out.print("Enter first card (Like A1): ");
@@ -76,10 +85,21 @@ public class Display {
                     System.out.println("That spot is already flipped! Choose another.");
                 } else {
                     break;
+=======
+            int r1 = -1;
+            int c1 = -1;
+            while (r1 < 0 || r1 > 3 || c1 < 0 || c1 > 3) {
+                System.out.print("Enter row (1-4) and col (0-3 for A-D) for FIRST card");
+                r1 = scanner.nextInt() - 1;
+                c1 = scanner.nextInt();
+                if (r1 < 0 || r1 > 3 || c1 < 0 || c1 > 3) {
+                    System.out.println("Invalid selection! Row must be 1-4 and Col must be 0-3.");
+>>>>>>> f6aed3f355d5d8f7dc060dd853bbf78a82e67305
                 }
             }
             revealed[r1][c1] = true;
             displayBoard();
+<<<<<<< HEAD
             int r2 = 0, c2 = 0;
             while (true) {
                 System.out.print("Enter second card (Like B2): ");
@@ -106,6 +126,18 @@ public class Display {
                     System.out.println("That spot is already flipped! Choose another.");
                 } else {
                     break;
+=======
+            int r2 = -1, c2 = -1;
+            while (r2 < 0 || r2 > 3 || c2 < 0 || c2 > 3) {
+                System.out.print("Enter row (1-4) and col (0-3 for A-D) for SECOND card");
+                r2 = scanner.nextInt() - 1;
+                c2 = scanner.nextInt();
+                if (r2 < 0 || r2 > 3 || c2 < 0 || c2 > 3) {
+                    System.out.println("Invalid selection! Row must be 1-4 and Col must be 0-3.");
+                } else if (r1 == r2 && c1 == c2) {
+                    System.out.println("You can't pick the exact same card twice!");
+                    r2 = -1;
+>>>>>>> f6aed3f355d5d8f7dc060dd853bbf78a82e67305
                 }
             }
             revealed[r2][c2] = true;
@@ -115,13 +147,24 @@ public class Display {
                 matches++;
             } else {
                 System.out.println("Not a match!");
+<<<<<<< HEAD
                 System.out.println("Press Enter to continue...");
                 scanner.nextLine();
 
+=======
+                System.out.println("Press Enter to flip cards back...");
+                scanner.nextLine();
+                scanner.nextLine();
+>>>>>>> f6aed3f355d5d8f7dc060dd853bbf78a82e67305
                 revealed[r1][c1] = false;
                 revealed[r2][c2] = false;
             }
         }
         System.out.println("You won!");
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> f6aed3f355d5d8f7dc060dd853bbf78a82e67305
