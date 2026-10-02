@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 public class Display {
 static String [][] board = new String [4][4];
 static boolean [][] revealed = new boolean [4][4];
@@ -43,8 +44,49 @@ static boolean [][] revealed = new boolean [4][4];
         }
     }
 	public static void playGame() {
-		
-		System.out.println("which 2 spaces would you like to guess");
-	}
-
+        Scanner scanner = new Scanner(System.in);
+        int matches = 0;
+        while (matches < 8) {
+            displayBoard();
+            int r1 = -1;
+            int c1 = -1;
+            while (r1 < 0 || r1 > 3 || c1 < 0 || c1 > 3) {
+                System.out.print("Enter row (1-4) and col (0-3 for A-D) for FIRST card");
+                r1 = scanner.nextInt() - 1;
+                c1 = scanner.nextInt();
+                if (r1 < 0 || r1 > 3 || c1 < 0 || c1 > 3) {
+                    System.out.println("Invalid selection! Row must be 1-4 and Col must be 0-3.");
+                }
+            }
+            revealed[r1][c1] = true;
+            displayBoard();
+            int r2 = -1, c2 = -1;
+            while (r2 < 0 || r2 > 3 || c2 < 0 || c2 > 3) {
+                System.out.print("Enter row (1-4) and col (0-3 for A-D) for SECOND card");
+                r2 = scanner.nextInt() - 1;
+                c2 = scanner.nextInt();
+                if (r2 < 0 || r2 > 3 || c2 < 0 || c2 > 3) {
+                    System.out.println("Invalid selection! Row must be 1-4 and Col must be 0-3.");
+                } else if (r1 == r2 && c1 == c2) {
+                    System.out.println("You can't pick the exact same card twice!");
+                    r2 = -1;
+                }
+            }
+            revealed[r2][c2] = true;
+            displayBoard();
+            if (board[r1][c1].equals(board[r2][c2])) {
+                System.out.println("Match!\n");
+                matches++;
+            } else {
+                System.out.println("Not a match!");
+                System.out.println("Press Enter to flip cards back...");
+                scanner.nextLine();
+                scanner.nextLine();
+                revealed[r1][c1] = false;
+                revealed[r2][c2] = false;
+            }
+        }
+        System.out.println("You won!");
+    }
 }
+

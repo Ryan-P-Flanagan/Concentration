@@ -3,12 +3,7 @@ public class Concetration {
 	public static void main(String[] args)
 		{
 			Display.prepareBoard();
-			Display.displayBoard();
+			Display.playGame();
 			
 		}
-		public static void prepareBoard() {
-
-		    
-	}
-
 }
