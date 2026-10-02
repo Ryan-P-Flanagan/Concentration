@@ -1,12 +1,10 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
-//new 
+import java.util.Scanner; 
 public class Display {
     static String[][] board = new String[4][4];
     static boolean[][] revealed = new boolean[4][4];
-
     public static void prepareBoard() {
         String[] animals = {"Cats", "Dogs", "Foxs", "Owls", "Pigs", "Cows", "Bear", "Lion"};
         List<String> cardList = new ArrayList<>();
@@ -28,6 +26,7 @@ public class Display {
     }
 
     public static void displayBoard() {
+    	System.out.println("Hi");
         System.out.println("      A       B       C       D");
         System.out.println("  +-------+-------+-------+-------+");
         for (int row = 0; row < 4; row++) {
